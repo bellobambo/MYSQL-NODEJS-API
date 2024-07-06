@@ -6,6 +6,14 @@ app.use(express.json());
 
 import { getNote, getNotes, createNote, updateNote , deleteNote } from "./db.js";
 
+app.get('/', async (req, res) =>{
+  res.json({
+    "message": "Welcome! Simple & Free MySql CRUD API",
+    "contactEmail": "bellobambo21@gmail.com",
+    "githubLink": "https://github.com/bellobambo/MYSQL-NODEJS-API"
+  })
+})
+
 app.get("/notes", async (req, res) => {
   const notes = await getNotes();
   res.send(notes);
